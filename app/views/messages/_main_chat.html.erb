@@ -12,31 +12,17 @@
 </div>
 
 <div class="main-main">
-<div class="messi">
-  <div class="one-message">
-    <div class="name-date">
-      <div class="name">Tom</div>
-      <div class="date">2021/4/15(FRI) 16:04:00</div>
-    </div>
-    <div class="message">おはよう</div>
-  </div>
-  <div class="one-message">
-    <div class="name-date">
-      <div class="name">Tom</div>
-      <div class="date">2021/4/15(FRI) 16:04:00</div>
-    </div>
-    <div class="message">おはよう</div>
-  </div>
-  </div>
+  <%= render partial: "message", collection: @messages %>
 </div>
-<div class="main-footer">
+
+<%= form_with model: [@room, @message], class: "main-footer", local: true do |f| %>
   <div class="forms">
-      <input class="text" placeholder="type amessage">
+    <%= f.text_field :content, class: "text", placeholder: "type amessage" %>
       <label class="form-image">
         <span class="image">画像</span>
-        <input type="file" class="image-choice">
+        <%= f.file_field :image, class: "image-choice" %>
       </label>
-    </div>
-      <input type="submit" value="送信" class="send">
-</div>
+   </div>
+      <%= f.submit "送信", class:"send" %>
+<% end %>
 
