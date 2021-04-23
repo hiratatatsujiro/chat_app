@@ -20,9 +20,9 @@
           <option value="">チャットメンバーを登録してください</option>
           <% User.where.not(id: current_user.id).each do |user| %>
           <option value=<%= user.id %>><%= user.name %></option>
-          <input type="hidden" name="room[user_ids][]" value=<%= current_user.id %>>
           <% end %>
         </select>
+          <input type="hidden" name="room[user_ids][]" value=<%= current_user.id %>>
       </div>
     </div>
     <div class='chat-room-form__field'> 
